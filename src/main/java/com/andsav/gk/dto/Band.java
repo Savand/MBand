@@ -3,6 +3,7 @@ package com.andsav.gk.dto;
 import java.util.List;
 
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 public class Band {
 	private BandBio bandBio;
@@ -11,6 +12,7 @@ public class Band {
 	private int publicRate;
 	
 	@NotNull
+	@Size(min=6, max=30)
 	private String password;
 	
 
