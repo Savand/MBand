@@ -9,6 +9,7 @@ public class ContactInfo {
 	@NotNull
 	@Size(min=1, max=255)
 	private String email;
+	
 	@Pattern(regexp="[A-Za-z0-9._%-+]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}")
 	private String city;
 	
