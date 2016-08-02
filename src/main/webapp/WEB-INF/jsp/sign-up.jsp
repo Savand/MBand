@@ -1,6 +1,7 @@
-<%@page import="com.andsav.gk.dto.MusicStyle"%>
+<%@page import="com.andsav.gk.entities.MusicStyle" %>
 <%@include file="includes/header.jsp"%>
-<%@ page isELIgnored="false" %>
+
+<link href="/public/css/validation.css" rel="stylesheet">
 
 
 <% MusicStyle[] musicStyles = MusicStyle.values(); 
@@ -15,29 +16,29 @@
 	
 	<div class="panel-body">
 	
-		<form:form modelAttribute="band" role="form" >
+		<form:form modelAttribute="signupForm" role="form" >
 		
 			<form:errors />
 			
 			<div class="form-group">
-				<form:label path="bandBio.name">Band name</form:label> 
-				<form:input	path="bandBio.name" class="form-control"/>
-				<form:errors cssClass="error" path="bandBio.name" />
+				<form:label path="bandName">Band name</form:label> 
+				<form:input	path="bandName" class="form-control"/>
+				<form:errors cssClass="error" path="bandName" />
 				<p class="help-block">Enter your band name</p>
 				
 			</div>
 			
 			<div class="form-group">
-				<form:label path="bandBio.musicStyle">Music style</form:label> 
-				<form:select path="bandBio.musicStyle" items="${styles}" class="form-control" />
+				<form:label path="musicStyle">Music style</form:label> 
+				<form:select path="musicStyle" items="${styles}" class="form-control" />
 				<p class="help-block">Choose the music style your band is preferably playing</p>
 			</div>
 	
 			<div class="form-group">
-				<form:label path="contactInfo.email">Email address</form:label> 
-				<form:input	path="contactInfo.email" type="email" class="form-control"/>
-				<form:errors cssClass="error" path="contactInfo.email" />
-				<p class="help-block">Email address should be valid and unique</p>
+				<form:label path="email">Email address</form:label> 
+				<form:input	path="email" type="email" class="form-control"/>
+				<form:errors cssClass="error" path="email" />
+				<p class="help-block">Email address should be valid and unique. It will be your login id.</p>
 			</div>
 			
 			<div class="form-group">
@@ -64,7 +65,7 @@
 	
 	<div class="panel-body">
 	
-		<form:form modelAttribute="band" role="form" >
+		<form:form modelAttribute="signupForm" role="form" >
 		
 			<div class="form-group">
 				<form:label path="">TODO Add other attributes</form:label> <!-- TODO --> 

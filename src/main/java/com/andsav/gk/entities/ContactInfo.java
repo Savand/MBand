@@ -1,16 +1,29 @@
-package com.andsav.gk.dto;
+package com.andsav.gk.entities;
 
-import org.hibernate.validator.constraints.Email;
-import org.hibernate.validator.constraints.NotEmpty;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
+@Entity
+@Table
 public class ContactInfo {
 	
-	@NotEmpty
-	@Email
+	private static final int EMAIL_MAX_LENGTH = 255;
+
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private Long id;
+	
+	@Column(nullable= false, length=EMAIL_MAX_LENGTH)
 	private String email;
 	
+	@Column
 	private String city;
 	
+	@Column
 	private String phoneNumber;
 	
 	

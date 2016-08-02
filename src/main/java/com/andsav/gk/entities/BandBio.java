@@ -1,16 +1,37 @@
-package com.andsav.gk.dto;
+package com.andsav.gk.entities;
 
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
+@Entity
+@Table(name="band_biography")
 public class BandBio {
 	
-	@NotNull
-	@Size(min=1, max=55)
+	private static final int NAME_MAX_LENGTH = 55;
+
+	private static final int SHORT_DESR__MAX_LENGTH = 1024;
+
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private Long id;
+
+	@Column(nullable= false, length=NAME_MAX_LENGTH)
 	private String name;
 	
+	@Enumerated(EnumType.ORDINAL)
 	private MusicStyle musicStyle;
+	
+	@OneToOne
 	private MediaBio mediaBio;
+	
+	@Column(length=SHORT_DESR__MAX_LENGTH)
 	private String shortDescription;
 	
 	
