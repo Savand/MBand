@@ -1,4 +1,10 @@
+<%@page import="com.andsav.gk.dto.MusicStyle"%>
 <%@include file="includes/header.jsp"%>
+<%@ page isELIgnored="false" %>
+
+
+<% MusicStyle[] musicStyles = MusicStyle.values(); 
+   request.setAttribute("styles", musicStyles); %>
 
 
 <div class = "panel panel-default">
@@ -11,28 +17,38 @@
 	
 		<form:form modelAttribute="band" role="form" >
 		
+			<form:errors />
+			
 			<div class="form-group">
 				<form:label path="bandBio.name">Band name</form:label> 
 				<form:input	path="bandBio.name" class="form-control"/>
+				<form:errors cssClass="error" path="bandBio.name" />
+				<p class="help-block">Enter your band name</p>
+				
 			</div>
 			
 			<div class="form-group">
-				<form:label path="bandBio.musicStyle">Band's music style</form:label> 
-				<form:select path="bandBio.musicStyle" items="${musicStyles}" class="form-control" />
+				<form:label path="bandBio.musicStyle">Music style</form:label> 
+				<form:select path="bandBio.musicStyle" items="${styles}" class="form-control" />
+				<p class="help-block">Choose the music style your band is preferably playing</p>
 			</div>
 	
 			<div class="form-group">
 				<form:label path="contactInfo.email">Email address</form:label> 
 				<form:input	path="contactInfo.email" type="email" class="form-control"/>
+				<form:errors cssClass="error" path="contactInfo.email" />
+				<p class="help-block">Email address should be valid and unique</p>
 			</div>
 			
 			<div class="form-group">
 				<form:label path="password">Password</form:label> 
 				<form:password path="password" class="form-control"/>
+				<form:errors cssClass="error" path="password" />
+				<p class="help-block">Password should be at least 6 signs long</p>
 			</div>
 			
 			
-			<button type="submit" class="btn btn-default">Go</button>
+			<button type="submit" class="btn btn-default">Go 'n fun</button>
 			
 		</form:form>
 	</div>

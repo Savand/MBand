@@ -6,7 +6,7 @@ import javax.validation.constraints.Size;
 public class BandBio {
 	
 	@NotNull
-	@Size(min=1, max=50)
+	@Size(min=1, max=55)
 	private String name;
 	
 	private MusicStyle musicStyle;

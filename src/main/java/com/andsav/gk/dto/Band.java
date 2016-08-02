@@ -2,17 +2,22 @@ package com.andsav.gk.dto;
 
 import java.util.List;
 
+import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 public class Band {
+	
+	@Valid
 	private BandBio bandBio;
+	
+	@Valid
 	private ContactInfo contactInfo;
 	private List<Musician> musicians;
 	private int publicRate;
 	
 	@NotNull
-	@Size(min=6, max=30)
+	@Size(min=4)
 	private String password;
 	
 

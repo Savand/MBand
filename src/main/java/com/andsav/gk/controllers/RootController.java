@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.andsav.gk.dto.Band;
+import com.andsav.gk.dto.BandBio;
 import com.andsav.gk.dto.MusicStyle;
 
 @Controller
@@ -27,21 +28,20 @@ public class RootController {
 	public String signUp(Model model){
 				
 		model.addAttribute(new Band());
-		model.addAttribute("musicStyles", MusicStyle.values());
 		
 		return "sign-up";
 	}
 	
 	@RequestMapping(value = "/signup", method=RequestMethod.POST)	
 	public String signUp(@ModelAttribute("band") @Valid Band band, BindingResult result){
-		LOGGER.info(String.valueOf(result.hasErrors()));
-		if(result.hasErrors())
-			return "sign-up";
 		
-		LOGGER.info(band.toString() + " is recieved");
+		if(result.hasErrors()){
+			LOGGER.info(result.getAllErrors().toString());
+			return "sign-up";
+		}
+		
 		
 		return "redirect:/";
-		
 	}
 	
 	

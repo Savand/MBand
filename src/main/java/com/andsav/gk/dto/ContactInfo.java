@@ -1,16 +1,14 @@
 package com.andsav.gk.dto;
 
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Pattern;
-import javax.validation.constraints.Size;
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.NotEmpty;
 
 public class ContactInfo {
 	
-	@NotNull
-	@Size(min=1, max=255)
+	@NotEmpty
+	@Email
 	private String email;
 	
-	@Pattern(regexp="[A-Za-z0-9._%-+]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}")
 	private String city;
 	
 	private String phoneNumber;
