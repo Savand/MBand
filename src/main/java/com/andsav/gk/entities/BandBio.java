@@ -4,6 +4,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -28,7 +29,7 @@ public class BandBio {
 	@Enumerated(EnumType.ORDINAL)
 	private MusicStyle musicStyle;
 	
-	@OneToOne
+	@OneToOne(fetch = FetchType.LAZY)
 	private MediaBio mediaBio;
 	
 	@Column(length=SHORT_DESR__MAX_LENGTH)
