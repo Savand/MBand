@@ -21,7 +21,7 @@ public class Band{
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 	
-	@OneToOne(cascade=CascadeType.ALL, fetch=FetchType.LAZY)
+	@OneToOne(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
 	private BandBio bandBio;
 	
 	@OneToOne(cascade=CascadeType.ALL)
@@ -37,6 +37,9 @@ public class Band{
 	private String password;
 	
 	
+	public Long getId() {
+		return id;
+	}
 
 	public BandBio getBandBio() {
 		return bandBio;

@@ -30,6 +30,11 @@ public class ContactInfo {
 	private String phoneNumber;
 	
 	
+	
+	public Long getId() {
+		return id;
+	}
+	
 	public String getEmail() {
 		return email;
 	}

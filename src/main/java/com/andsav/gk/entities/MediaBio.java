@@ -25,6 +25,12 @@ public class MediaBio {
 	private Byte[] biography;
 	
 	
+	
+	
+	public Long getId() {
+		return id;
+	}
+	
 	public Byte[] getBandImage() {
 		return bandImage;
 	}
